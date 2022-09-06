@@ -8,10 +8,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import cafe.adriel.androidaudioconverter.AndroidAudioConverter
-import cafe.adriel.androidaudioconverter.callback.IConvertCallback
-import cafe.adriel.androidaudioconverter.callback.ILoadCallback
-import cafe.adriel.androidaudioconverter.model.AudioFormat
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -114,17 +110,17 @@ class FlutterPluginRecordPlugin : FlutterPlugin, MethodCallHandler, ActivityAwar
 
     //初始化wav转 MP3
     private fun initWavToMp3(){
-        AndroidAudioConverter.load(activity.applicationContext, object : ILoadCallback {
-            override fun onSuccess() {
-                // Great!
-                Log.d("android", "  AndroidAudioConverter onSuccess")
-            }
-
-            override fun onFailure(error: Exception) {
-                // FFmpeg is not supported by device
-                Log.d("android", "  AndroidAudioConverter onFailure")
-            }
-        })
+//        AndroidAudioConverter.load(activity.applicationContext, object : ILoadCallback {
+//            override fun onSuccess() {
+//                // Great!
+//                Log.d("android", "  AndroidAudioConverter onSuccess")
+//            }
+//
+//            override fun onFailure(error: Exception) {
+//                // FFmpeg is not supported by device
+//                Log.d("android", "  AndroidAudioConverter onFailure")
+//            }
+//        })
 
     }
 
@@ -402,11 +398,12 @@ class FlutterPluginRecordPlugin : FlutterPlugin, MethodCallHandler, ActivityAwar
                             Log.d("android", "  ConvertCallback $error")
                         }
                     }
-                    AndroidAudioConverter.with(activity.applicationContext)
-                            .setFile(recordFile)
-                            .setFormat(AudioFormat.MP3)
-                            .setCallback(callback)
-                            .convert()
+//                    AndroidAudioConverter.with(activity.applicationContext)
+//                            .setFile(recordFile)
+//                            .setFormat(AudioFormat.MP3)
+//                            .setCallback(callback)
+//                            .convert()
+                    AudioConverter.convertedFile(recordFile,AudioFormat.MP3,callback)
 
                 }else{
                     val _id = call.argument<String>("id")
