@@ -320,11 +320,12 @@ class FlutterPluginRecordPlugin : FlutterPlugin, MethodCallHandler, ActivityAwar
                             Log.d("android", "  ConvertCallback $error")
                         }
                     }
-                    AndroidAudioConverter.with(activity.applicationContext)
-                            .setFile(recordFile)
-                            .setFormat(AudioFormat.MP3)
-                            .setCallback(callback)
-                            .convert()
+//                    AndroidAudioConverter.with(activity.applicationContext)
+//                            .setFile(recordFile)
+//                            .setFormat(AudioFormat.MP3)
+//                            .setCallback(callback)
+//                            .convert()
+                    AudioConverter.convertedFile(recordFile,AudioFormat.MP3,callback)
 
                 }else{
                     val _id = call.argument<String>("id")

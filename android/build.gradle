@@ -11,7 +11,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:7.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -44,7 +44,8 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.github.shaoshuai904:RecordWav:1.0.2'
+    implementation 'com.github.shaoshuai904:RecordWav:1.0.3'
     implementation "androidx.appcompat:appcompat:1.0.0"
     implementation 'com.github.adrielcafe:AndroidAudioConverter:0.0.8'
+    implementation 'com.arthenica:mobile-ffmpeg-full:4.4'
 }
